@@ -5,7 +5,8 @@ import os
 from dotenv import load_dotenv
 
 # Dynamically load the .env file
-load_dotenv("config.env")
+dotenv_path = os.path.join(os.path.dirname(__file__), "../Config/config.env")
+load_dotenv(dotenv_path)
 
 def plot_raw_data():
 

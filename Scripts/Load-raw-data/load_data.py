@@ -5,7 +5,8 @@ from utils import natural_sort_key
 from dotenv import load_dotenv
 
 # Dynamically load the .env file
-load_dotenv("config.env")
+dotenv_path = os.path.join(os.path.dirname(__file__), "../Config/config.env")
+load_dotenv(dotenv_path)
 
 def read_multiple_datasets(file_paths):
     """ 
@@ -45,14 +46,18 @@ def load_data():
 
     #Save the data to a pickle file for reuse
     directory_pickle = os.getenv("DIRECTORY_PICKLE")  #Load the path from the .env file
-
+    file_names_path = os.getenv("DIRECTORY_FILE_NAMES")
     if not directory_pickle:
         raise ValueError("DIRECTORY_PICKLE environment variable is not set.")
     
     with open(directory_pickle, "wb") as f: 
         pickle.dump((raw_dataFrames, raw_files), f)
+    with open(file_names_path, "wb") as f:
+        pickle.dump(raw_files, f)
+    
+    print(f"Raw data and filenames saved: {directory_pickle}, {file_names_path}")
     return raw_dataFrames, raw_files
 
 # Example usage:
 raw_dataFrames, raw_files = load_data()
-print(raw_dataFrames, raw_files)
+
