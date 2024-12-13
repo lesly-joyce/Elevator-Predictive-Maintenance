@@ -1,5 +1,6 @@
 import pandas as pd 
 import os
+import pickle
 from utils import natural_sort_key
 from dotenv import load_dotenv
 
@@ -41,6 +42,15 @@ def load_data():
     raw_files = sorted([f for f in os.listdir(directory_path) if f.endswith('.csv')], key=natural_sort_key)
     raw_file_paths = [os.path.join(directory_path, f) for f in raw_files]
     raw_dataFrames = read_multiple_datasets(raw_file_paths)
+
+    #Save the data to a pickle file for reuse
+    directory_pickle = os.getenv("DIRECTORY_PICKLE")  #Load the path from the .env file
+
+    if not directory_pickle:
+        raise ValueError("DIRECTORY_PICKLE environment variable is not set.")
+    
+    with open(directory_pickle, "wb") as f: 
+        pickle.dump((raw_dataFrames, raw_files), f)
     return raw_dataFrames, raw_files
 
 # Example usage:
