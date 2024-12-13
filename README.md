@@ -10,21 +10,28 @@ This Project automates the predictive maintenace pipeline for an elevator predic
 ## Project Directory Structure
 
     Elevator-Predictive-Maintenance/ 
-    ├── data/                             # folder of the datsets 
-        ├──raw/electric_training          #Raw datasets
-            ├──loaded_data.pkl            #data already loaded and saved in a pickle file for easy reusalbility
-    ├── scripts/                          # Modular Python scripts 
-        ├── Load-raw-data/                #Load raw data
-            ├── load_data.py              #Scripts to load raw data and save in pickle file
-            ├── plot_raw_data.py          #Scripts to plot raw data saved in pickle file
-            ├── utils.py                  #used for natural sort key
-            ├── config.env                #Configuration file
-        ├── Preprocessing/                #Process the data(filter, cleaning)
-    ├── models/                           # Trained models and MLflow artifacts 
-    ├── mlruns/                           # MLflow tracking files 
-    ├── main.py                           # Main pipeline orchestrating script 
-    ├── requirements.txt                  # Python dependencies 
-    ├── README.md                         # Documentation
+    ├── data/                                   #folder of the datsets 
+        ├──raw/electric_training                #Raw datasets
+            ├── loaded_data.pkl                 #data already loaded and saved in a pickle file for easy reusalbility
+            ├── file_names.pkl                  #file names saved for reusability
+            ├── filtered_normalized_data.pkl    #data preprocessed saved in pickle file
+            ├── journeys.pkl                    #index journeys saved for further use
+    ├── Scripts/                                # Modular Python scripts 
+        ├── Config                              #Configuration file
+            ├── config.env
+        ├── Load-raw-data/                      #Load raw data
+            ├── load_data.py                    #Scripts to load raw data and save in pickle file
+            ├── plot_raw_data.py                #Scripts to plot raw data saved in pickle file
+            ├── utils.py                        #used for natural sort key             
+        ├── Preprocessing/                      #Process the data(filter, cleaning)
+            ├── data_cleaning.py                #data filtered and normalized, saved in pickle file
+            ├── lift_journey_detection.py       #detect the elevator lift journey
+            ├── plot_processed_journey_data.py  #plot filtered and normalized data with start and end journey identified
+    ├── models/                                 # Trained models and MLflow artifacts 
+    ├── mlruns/                                 # MLflow tracking files 
+    ├── main.py                                 # Main pipeline orchestrating script 
+    ├── requirements.txt                        # Python dependencies 
+    ├── README.md                               # Documentation
 
 ---
 
