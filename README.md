@@ -9,14 +9,15 @@ This Project automates the predictive maintenace pipeline for an elevator predic
 
 ## Project Directory Structure
 
-    project/ 
-    ├── data/            # Raw and processed datasets 
-    ├── scripts/         # Modular Python scripts 
-    ├── models/          # Trained models and MLflow artifacts 
-    ├── mlruns/          # MLflow tracking files 
-    ├── main.py          # Main pipeline orchestrating script 
-    ├── requirements.txt # Python dependencies 
-    ├── README.md        # Documentation
+    Elevator-Predictive-Maintenance/ 
+    ├── data/                             # folder of the datsets 
+        ├──raw/electric_training          #raw datasets
+    ├── scripts/                          # Modular Python scripts 
+    ├── models/                           # Trained models and MLflow artifacts 
+    ├── mlruns/                           # MLflow tracking files 
+    ├── main.py                           # Main pipeline orchestrating script 
+    ├── requirements.txt                  # Python dependencies 
+    ├── README.md                         # Documentation
 
 ---
 
