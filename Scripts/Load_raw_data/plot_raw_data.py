@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 dotenv_path = os.path.join(os.path.dirname(__file__), "../Config/config.env")
 load_dotenv(dotenv_path)
 
-def plot_raw_data():
+def plot_raw_data(dataFrames, file_names):
 
     with open(os.getenv("DIRECTORY_PICKLE"), "rb") as f:
         dataFrames, file_names= pickle.load(f)
