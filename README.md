@@ -16,6 +16,7 @@ This Project automates the predictive maintenace pipeline for an elevator predic
             ├── file_names.pkl                  #file names saved for reusability
             ├── filtered_normalized_data.pkl    #data preprocessed saved in pickle file
             ├── journeys.pkl                    #index journeys saved for further use
+            ├── raw_journey_data.pkl            #raw data within the lift range
     ├── Scripts/                                # Modular Python scripts 
         ├── Config                              #Configuration file
             ├── config.env
@@ -27,6 +28,8 @@ This Project automates the predictive maintenace pipeline for an elevator predic
             ├── data_cleaning.py                #data filtered and normalized, saved in pickle file
             ├── lift_journey_detection.py       #detect the elevator lift journey
             ├── plot_processed_journey_data.py  #plot filtered and normalized data with start and end journey identified
+            ├── raw_journey_dataframe.py        #Update the dataframe focusing on the lift range
+            ├── plot_raw_journey_dataframe.py
     ├── models/                                 # Trained models and MLflow artifacts 
     ├── mlruns/                                 # MLflow tracking files 
     ├── main.py                                 # Main pipeline orchestrating script 
