@@ -38,6 +38,8 @@ This Project automates the predictive maintenace pipeline for an elevator predic
         ├── Calculated_features/ 
             ├── feature_extraction.py           #file of the feature extraction 
     ├── models/                                 # Trained models and MLflow artifacts 
+            ├── neural_network.py               #neural_network model with performance tracking using mlfow
+            ├── random_forest.py                #Random Forest model with performance tracking using mlflow
     ├── mlruns/                                 # MLflow tracking files 
     ├── main.py                                 # Main pipeline orchestrating script 
     ├── requirements.txt                        # Python dependencies 
@@ -87,7 +89,7 @@ Before Starting, ensure the following are installed:
 ### **3. Track exepriments in Mlflow**:
 - Start the mlflow UI:
     ```bash
-    mlflow ui
+    python -m mlflow ui
 - Open http://127.0.0.1:5000 in your browser
 
 ---
