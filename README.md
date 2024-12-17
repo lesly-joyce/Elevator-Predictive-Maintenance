@@ -16,9 +16,11 @@ This Project automates the predictive maintenace pipeline for an elevator predic
             ├── filtered_normalized_data.pkl    #data preprocessed saved in pickle file
             ├── journeys.pkl                    #index journeys saved for further use
             ├── raw_journey_data.pkl            #raw data within the lift range
+            ├── all_cleaned_data.pkl            #filtered and normalized data + synthetic ready for feature extraction
+            ├── extracted_features.csv          #csv file containing all the extracted features
     ├── Scripts/                                # Modular Python scripts 
-        ├── Config                              #Configuration file
-            ├── config.env
+        ├── Config                              
+            ├── config.env                      #Configuration file
         ├── Load-raw-data/                      #Load raw data
             ├── load_data.py                    #Scripts to load raw data and save in pickle file
             ├── plot_raw_data.py                #Scripts to plot raw data saved in pickle file
@@ -29,10 +31,12 @@ This Project automates the predictive maintenace pipeline for an elevator predic
             ├── plot_processed_journey_data.py  #plot filtered and normalized data with start and end journey identified
             ├── raw_journey_dataframe.py        #Update the dataframe focusing on the lift range
             ├── plot_raw_journey_dataframe.py   #plot raw data within the lift range
-            ├── synthetic_combined_data.py      #generate synthetic data using the montecarlo function to have more data
+            ├── synthetic_data.py      #generate synthetic data using the montecarlo function to have more data
             ├── plot_raw_combined_data.py       #plot the updated raw datasets within lift journey original + synthetic
             ├── clean_combined_data.py          #filter and normalize the combined original + synthetic data
-            ├── plot_clean_combined_data.py
+            ├── plot_clean_combined_data.py     #plot of all the data preprocessed within the lift journey combined with synthetic data
+        ├── Calculated_features/ 
+            ├── feature_extraction.py           #file of the feature extraction 
     ├── models/                                 # Trained models and MLflow artifacts 
     ├── mlruns/                                 # MLflow tracking files 
     ├── main.py                                 # Main pipeline orchestrating script 
