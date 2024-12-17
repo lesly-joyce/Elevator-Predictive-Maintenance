@@ -47,7 +47,7 @@ def find_lift_journey(dataFrames, derivatives, upperbound, lowerbound, min_durat
                 if count >= min_duration:
                     start = current_start
                     start_timestamp = df['timeStamp'].iloc[start]
-                    end = idx - 1
+                    end = index - 1
                     end_timestamp = df['timeStamp'].iloc[end]
                 count += 1
             else:
