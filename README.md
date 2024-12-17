@@ -8,8 +8,8 @@ This Project automates the predictive maintenace pipeline for an elevator predic
 ---
 
 ## Project Directory Structure
-    ```
-    Elevator-Predictive-Maintenance/ 
+```
+Elevator-Predictive-Maintenance/ 
     ├── data/raw and pickle data                #folder of the datsets 
             ├── loaded_data.pkl                 #data already loaded and saved in a pickle file for easy reusalbility
             ├── file_names.pkl                  #file names saved for reusability
@@ -44,7 +44,7 @@ This Project automates the predictive maintenace pipeline for an elevator predic
     ├── main.py                                 # Main pipeline orchestrating script 
     ├── requirements.txt                        # Python dependencies 
     ├── README.md                               # Documentation
-    ```
+```
 
 ### **Workflow Summary**
 1. **Data Loading**: Load raw vibration data into pandas DataFrames.
