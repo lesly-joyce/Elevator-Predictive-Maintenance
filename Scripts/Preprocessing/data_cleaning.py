@@ -92,4 +92,5 @@ def preprocess_data():
     print(f"Preprocessed data saved to: {processed_data_path}")
     
 # Example usage:
-preprocess_data()
+if __name__ == "__main__":
+    preprocess_data()

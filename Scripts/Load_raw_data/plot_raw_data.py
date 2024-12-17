@@ -75,13 +75,13 @@ def plot_raw_data(dataFrames, file_names):
         plt.gcf().autofmt_xdate()
         plt.show()
 
+if __name__ == "__main__":
+    # Load pickle paths from environment variables
+    data_pickle_path = os.getenv("DIRECTORY_PICKLE")
+    file_names_pickle_path = os.getenv("DIRECTORY_FILE_NAMES")
 
-# Load pickle paths from environment variables
-data_pickle_path = os.getenv("DIRECTORY_PICKLE")
-file_names_pickle_path = os.getenv("DIRECTORY_FILE_NAMES")
+    # Load the data from pickle files
+    dataFrames, file_names = load_pickled_data(data_pickle_path, file_names_pickle_path)
 
-# Load the data from pickle files
-dataFrames, file_names = load_pickled_data(data_pickle_path, file_names_pickle_path)
-
-# Plot the raw data
-plot_raw_data(dataFrames, file_names)
+    # Plot the raw data
+    plot_raw_data(dataFrames, file_names)

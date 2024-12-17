@@ -35,4 +35,5 @@ def plot_combined_data():
     plot_raw_data(combined_dataFrames, combined_file_names)
 
 # Example usage
-plot_combined_data()
+if __name__ == "__main__":
+    plot_combined_data()

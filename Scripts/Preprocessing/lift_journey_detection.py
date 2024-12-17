@@ -93,4 +93,5 @@ def detect_lift_journeys():
     print("Lift journeys detected and saved for further use.", journeys)
 
 # Example usage:
-detect_lift_journeys()
+if __name__ == "__main__":
+    detect_lift_journeys()

@@ -86,6 +86,7 @@ def extract_and_save_journeys():
     print(f"Lift journey-specific raw data saved to {journeys_data_path}")
 
 # Example usage:
-extract_and_save_journeys()
+if __name__ == "__main__":
+    extract_and_save_journeys()
 
 

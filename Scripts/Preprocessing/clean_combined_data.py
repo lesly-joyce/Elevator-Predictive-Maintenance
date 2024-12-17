@@ -50,5 +50,7 @@ def clean_combined_data():
 
     print(f"Cleaned data saved to: {cleaned_data_path}")
 
+
 # Example usage
-clean_combined_data()
+if __name__ == "__main__":
+    clean_combined_data()

@@ -96,4 +96,5 @@ def generate_and_combine_synthetic_data():
     print(f"File names saved to: {combined_file_names_path}")
 
 # Example usage
-generate_and_combine_synthetic_data()
+if __name__ == "__main__":
+    generate_and_combine_synthetic_data()

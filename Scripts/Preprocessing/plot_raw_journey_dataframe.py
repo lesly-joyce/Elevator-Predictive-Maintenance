@@ -38,4 +38,5 @@ def plot_extracted_journeys():
     plot_raw_data(raw_journey_dataFrames, raw_files_base)
 
 # Example usage:
-plot_extracted_journeys()
+if __name__ == "__main__":
+    plot_extracted_journeys()

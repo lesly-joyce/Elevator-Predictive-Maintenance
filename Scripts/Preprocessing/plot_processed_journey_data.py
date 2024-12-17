@@ -69,4 +69,5 @@ def visualize_processed_journeys():
     # Plot the data
     plot_filtered_normalized(normalized_dataFrames, file_names, journeys)
 
-visualize_processed_journeys()
+if __name__ == "__main__":
+    visualize_processed_journeys()

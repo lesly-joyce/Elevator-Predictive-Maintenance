@@ -60,7 +60,8 @@ def load_data():
     return raw_dataFrames, raw_files
 
 # Example usage:
-raw_dataFrames, raw_files = load_data()
-print(raw_dataFrames[0])
-print(type(raw_dataFrames[0]))
+if __name__ == "__main__":
+    raw_dataFrames, raw_files = load_data()
+    print(raw_dataFrames[0])
+    print(type(raw_dataFrames[0]))
 
