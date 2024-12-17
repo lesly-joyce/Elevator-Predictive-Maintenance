@@ -33,7 +33,7 @@ def find_lift_journey(dataFrames, derivatives, upperbound, lowerbound, min_durat
     :return: List of detected journeys.
     """
     journeys = []
-    for idx, df, (der_x, der_y, der_z) in zip(dataFrames, derivatives):
+    for idx, (df, (der_x, der_y, der_z)) in enumerate(zip(dataFrames, derivatives)):
         print(f"Processing dataset {idx + 1}")
         count = 0
         current_start = 0
@@ -47,7 +47,7 @@ def find_lift_journey(dataFrames, derivatives, upperbound, lowerbound, min_durat
                 if count >= min_duration:
                     start = current_start
                     start_timestamp = df['timeStamp'].iloc[start]
-                    end = index - 1
+                    end = idx - 1
                     end_timestamp = df['timeStamp'].iloc[end]
                 count += 1
             else:
