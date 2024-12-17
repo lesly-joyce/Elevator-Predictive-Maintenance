@@ -51,7 +51,7 @@ def load_data():
         raise ValueError("DIRECTORY_PICKLE environment variable is not set.")
     
     with open(directory_pickle, "wb") as f: 
-        pickle.dump([df.copy() for df in raw_dataFrames], f)
+        pickle.dump([df.copy() for df in raw_dataFrames],  f)
 
     with open(file_names_path, "wb") as f:
         pickle.dump(raw_files, f)

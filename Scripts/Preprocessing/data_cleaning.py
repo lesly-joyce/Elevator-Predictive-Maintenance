@@ -56,25 +56,40 @@ def normalize_datasets(dataFrames):
 
 def preprocess_data():
     """
-    Load raw data, apply filtering and normalization, and save processed data.
+    Preprocess raw data: filter and normalize.
     """
-    # Load raw data from pickle
-    pickle_path = os.getenv("DIRECTORY_PICKLE")
-    with open(pickle_path, "rb") as f:
-        raw_dataFrames, raw_files = pickle.load(f)
+    # Load raw data and filenames from separate pickle files
+    raw_data_path = os.getenv("DIRECTORY_PICKLE")
+    file_names_path = os.getenv("DIRECTORY_FILE_NAMES")
+
+    if not raw_data_path or not file_names_path:
+        raise ValueError("DIRECTORY_PICKLE or DIRECTORY_FILE_NAMES environment variable is not set.")
+    
+    # Load raw dataFrames
+    with open(raw_data_path, "rb") as f:
+        raw_dataFrames = pickle.load(f)
+
+    # Load raw filenames
+    with open(file_names_path, "rb") as f:
+        raw_files = pickle.load(f)
+
+    print(f"Loaded {len(raw_dataFrames)} raw DataFrames for preprocessing.")
+    print(f"Loaded filenames: {raw_files}")
 
     # Apply filtering
-    filtered_dataFrames = apply_filter_to_dataset(raw_dataFrames, cutoff_frequency=0.3, sampling_rate=30)
+    cutoff_frequency = float(os.getenv("CUTOFF_FREQUENCY_1", 0.3))
+    sampling_rate = float(os.getenv("SAMPLING_RATE_1", 30))
+    filtered_dataFrames = apply_filter_to_dataset(raw_dataFrames, cutoff_frequency, sampling_rate)
 
     # Apply normalization
     normalized_dataFrames = normalize_datasets(filtered_dataFrames)
 
-    # Save processed data to pickle
-    processed_pickle_path = os.getenv("DIRECTORY_FILTERED_NORMALIZED_PICKLE")
-    with open(processed_pickle_path, "wb") as f:
+    # Save the processed data
+    processed_data_path = os.getenv("DIRECTORY_FILTERED_NORMALIZED_PICKLE")
+    with open(processed_data_path, "wb") as f:
         pickle.dump(normalized_dataFrames, f)
 
-    print("Data preprocessing complete. Processed data saved for further use.")
+    print(f"Preprocessed data saved to: {processed_data_path}")
     
 # Example usage:
 preprocess_data()

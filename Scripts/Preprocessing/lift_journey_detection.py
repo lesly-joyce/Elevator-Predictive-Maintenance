@@ -21,7 +21,8 @@ def calculate_derivative(dataFrames):
         derivatives.append((der_x, der_y, der_z))
     return derivatives
 
-def find_lift_journey(dataFrames, derivatives, upperbound=0.005, lowerbound=-0.005, min_duration=320):
+
+def find_lift_journey(dataFrames, derivatives, upperbound, lowerbound, min_duration):
     """
     Detect lift journeys based on stability in the derivative.
     :param dataFrames: List of DataFrames.
@@ -32,7 +33,8 @@ def find_lift_journey(dataFrames, derivatives, upperbound=0.005, lowerbound=-0.0
     :return: List of detected journeys.
     """
     journeys = []
-    for df, (der_x, der_y, der_z) in zip(dataFrames, derivatives):
+    for idx, df, (der_x, der_y, der_z) in zip(dataFrames, derivatives):
+        print(f"Processing dataset {idx + 1}")
         count = 0
         current_start = 0
         start, start_timestamp, end, end_timestamp = None, None, None, None
@@ -41,18 +43,25 @@ def find_lift_journey(dataFrames, derivatives, upperbound=0.005, lowerbound=-0.0
             if lowerbound <= value <= upperbound:
                 if current_start == 0:
                     current_start = index
+
                 if count >= min_duration:
                     start = current_start
-                    start_timestamp = df['timeStamp'][start]
+                    start_timestamp = df['timeStamp'].iloc[start]
                     end = index - 1
-                    end_timestamp = df['timeStamp'][end]
+                    end_timestamp = df['timeStamp'].iloc[end]
                 count += 1
             else:
                 count = 0
                 current_start = 0
         if start is None or end is None:
             print("No journey detected in this dataset. Adjust the thresholds or duration.")
+
+        if start is None or end is None:
+            print(f"No valid journey detected in dataset {idx + 1}. Derivative Z values: {der_z}")
+        else:
+            print(f"Journey detected in dataset {idx + 1}: Start={start_timestamp}, End={end_timestamp}")
         journeys.append((start, start_timestamp, end, end_timestamp))
+
     return journeys
 
 def detect_lift_journeys():
@@ -68,8 +77,13 @@ def detect_lift_journeys():
     # Calculate derivatives
     derivatives = calculate_derivative(normalized_dataFrames)
 
+    # Get journey detection parameters from environment variables
+    upperbound = float(os.getenv("JOURNEY_UPPERBOUND", 0.005))
+    lowerbound = float(os.getenv("JOURNEY_LOWERBOUND", -0.005))
+    min_duration = int(os.getenv("JOURNEY_MIN_DURATION", 320))
+
     # Detect lift journeys
-    journeys = find_lift_journey(normalized_dataFrames, derivatives)
+    journeys = find_lift_journey(normalized_dataFrames, derivatives, upperbound, lowerbound, min_duration)
 
     # Save detected journeys to pickle
     journeys_pickle_path = os.getenv("DIRECTORY_JOURNEYS_PICKLE")
