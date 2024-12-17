@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/lesly/Downloads/machine%20learning%20intern/Elevator-Predictive-Maintenance/Elevator-Predictive-Maintenance/models/mlruns/648508511553844884/ebb975fd8fb94c91bfb2cd77646add0c/artifacts
+end_time: 1734472111826
+entry_point_name: ''
+experiment_id: '648508511553844884'
+lifecycle_stage: active
+run_id: ebb975fd8fb94c91bfb2cd77646add0c
+run_name: Random Forest5
+run_uuid: ebb975fd8fb94c91bfb2cd77646add0c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734472092489
+status: 3
+tags: []
+user_id: lesly
