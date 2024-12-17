@@ -8,7 +8,7 @@ This Project automates the predictive maintenace pipeline for an elevator predic
 ---
 
 ## Project Directory Structure
-
+    ```
     Elevator-Predictive-Maintenance/ 
     ├── data/raw and pickle data                #folder of the datsets 
             ├── loaded_data.pkl                 #data already loaded and saved in a pickle file for easy reusalbility
@@ -44,7 +44,16 @@ This Project automates the predictive maintenace pipeline for an elevator predic
     ├── main.py                                 # Main pipeline orchestrating script 
     ├── requirements.txt                        # Python dependencies 
     ├── README.md                               # Documentation
+    ```
 
+### **Workflow Summary**
+1. **Data Loading**: Load raw vibration data into pandas DataFrames.
+2. **Data Preprocessing**: Clean, normalize, and augment data with synthetic samples.
+3. **Feature Extraction**: Extract time-domain and frequency-domain features from datasets.
+4. **Model Training**: Train an MLP neural network using standardized and PCA-reduced data.
+5. **Evaluation**: Evaluate the model using metrics such as accuracy, precision, recall, F1 score, and AUC-ROC.
+6. **Experiment Tracking**: Log experiments using MLflow to track metrics, hyperparameters, and artifacts.
+7. **Model Deployment**: Deploy the trained model as a REST API for real-time inference.
 ---
 
 ## Getting Started
@@ -131,15 +140,37 @@ Before Starting, ensure the following are installed:
 ## Project Details
 
 ### **Features** :
-- **Data Preprocessing**: Standardizes raw datasets.
-- **Feature Engineering**: Extracys meaningful features for prediction.
-- **MLflow Integration**: Tracks all experiments, parameters, metrics, and artifacts.
-- **Model Deployment**: Serve the trained model via a REST API.
+- **Data Preprocessing**: Standardizes and cleans raw datasets, including handling missing values, normalization, and dimensionality reduction using PCA.
+- **Feature Engineering**: Extracts meaningful time-domain and frequency-domain features from the vibration datasets for accurate predictions.
+- **Synthetic Data Generation**: Augments the dataset with synthetic lift journey data using Monte Carlo simulations to improve model robustness.
+- **MLflow Integration**: Tracks all experiments, including hyperparameters, performance metrics (accuracy, precision, recall, F1 score, AUC-ROC), and artifacts such as trained models.
+- **Model Training and Evaluation**: Utilizes a Multi-Layer Perceptron (MLP) neural network with cross-validation for evaluation and performance validation.
+- **Experiment Logging**: Logs metrics, hyperparameters, and model artifacts to MLflow for organized and reproducible experiments.
+- **Model Deployment**: Deploys the trained model via a REST API for serving predictions in real-time.
+- **Pipeline Automation**: Modularizes the entire workflow into reusable scripts for data loading, preprocessing, feature extraction, model training, evaluation, and tracking.
 
-## Tecnologies
-- **Python**
-- **MLflow**
-- **scikit-learn**
+
+
+### **Tools and Libraries**
+- **Python**: Core programming language.
+- **Pandas**: Data manipulation and processing.
+- **NumPy**: Numerical computations.
+- **Scikit-learn**: Machine learning model training and evaluation.
+- **MLflow**: Experiment tracking and model logging.
+- **Dotenv**: Environment configuration management.
+- **Matplotlib/Seaborn**: Data visualization (optional for debugging).
+
+### **Model Details**
+- **Model**: Multi-Layer Perceptron (MLPClassifier)
+- **Hyperparameters**:
+    - Hidden Layers: (128, 64)
+    - Activation: ReLU
+    - Max Iterations: 200
+    - Random State: 42
+- **Performance Metrics**:
+    - Accuracy, Precision, Recall, F1 Score, AUC-ROC
+    - Cross-validation Accuracy
+
 
 
 
