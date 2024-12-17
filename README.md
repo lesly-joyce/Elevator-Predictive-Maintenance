@@ -78,13 +78,13 @@ Before Starting, ensure the following are installed:
 
 ---
 
-## Running the Pipeline
+## Loading the raw data
 
 ### **1. Add your raw data**:
-- Place your raw datasets in the **data/raw/** directory
+- Place your raw datasets in the **data/** directory
 
-### **2. Run the main pipeline**:
-    python main.py
+### **2. Load the raw data**:
+    python load_data.py
 
 ### **3. Track exepriments in Mlflow**:
 - Start the mlflow UI:
@@ -122,10 +122,10 @@ Before Starting, ensure the following are installed:
 
 1. Clone the repository
 2. Install a virtual environment and dependencies **(requirement.txt)**
-3. Place your raw data in **data/raw/.**
-4. Run the pipeline:
+3. Place your raw data in **data/.**
+4. Run the Script in **Load_raw_data/load_data.py**:
     ```bash
-    python main.py
+    python load_data.py
 
 ---
 ## Project Details
