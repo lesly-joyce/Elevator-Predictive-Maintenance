@@ -10,8 +10,7 @@ This Project automates the predictive maintenace pipeline for an elevator predic
 ## Project Directory Structure
 
     Elevator-Predictive-Maintenance/ 
-    ├── data/                                   #folder of the datsets 
-        ├──raw/electric_training                #Raw datasets
+    ├── data/raw and pickle data                #folder of the datsets 
             ├── loaded_data.pkl                 #data already loaded and saved in a pickle file for easy reusalbility
             ├── file_names.pkl                  #file names saved for reusability
             ├── filtered_normalized_data.pkl    #data preprocessed saved in pickle file
@@ -29,7 +28,11 @@ This Project automates the predictive maintenace pipeline for an elevator predic
             ├── lift_journey_detection.py       #detect the elevator lift journey
             ├── plot_processed_journey_data.py  #plot filtered and normalized data with start and end journey identified
             ├── raw_journey_dataframe.py        #Update the dataframe focusing on the lift range
-            ├── plot_raw_journey_dataframe.py
+            ├── plot_raw_journey_dataframe.py   #plot raw data within the lift range
+            ├── synthetic_combined_data.py      #generate synthetic data using the montecarlo function to have more data
+            ├── plot_raw_combined_data.py       #plot the updated raw datasets within lift journey original + synthetic
+            ├── clean_combined_data.py          #filter and normalize the combined original + synthetic data
+            ├── plot_clean_combined_data.py
     ├── models/                                 # Trained models and MLflow artifacts 
     ├── mlruns/                                 # MLflow tracking files 
     ├── main.py                                 # Main pipeline orchestrating script 
