@@ -168,8 +168,35 @@ Before Starting, ensure the following are installed:
     - Max Iterations: 200
     - Random State: 42
 - **Performance Metrics**:
-    - Accuracy, Precision, Recall, F1 Score, AUC-ROC
-    - Cross-validation Accuracy
+    - Accuracy: Evaluated on a test set
+    - Precision, Recall, F1 Score: Weightedmetrics to handle imbalanced classes.
+    - AUC-ROC: Evaluates classification confidence.
+    - 5-fold Cross-validation Accuracy
+- **Model Tracking**:
+    - All metrics and parameters logged using MLflow under the experiment **Neural Network Experiments**
+
+- **Model**: Random Forest Model (RandomForestClassifier)
+- **Hyperparameters**:
+    - Number of Estimetors: 200 decision trees.
+    - Depth: Unlimited (None), allowing full growth of trees.
+    - Random State: 42 for reproducibility
+- **Performance Metrics**:
+    - Accuracy: Evaluated on a test set
+    - Precision, Recall, F1 Score: Weightedmetrics to handle imbalanced classes.
+    - AUC-ROC: Evaluates classification confidence.
+    - 5-fold Cross-validation Accuracy
+- **Model Tracking**:
+    - All metrics and parameters logged using MLflow under the experiment **Random Forest Experiment**
+
+### **Model Evaluation and Comparison**
+- Two models, **MLPClassifier** and **RandomForestClassifier**, are evaluated based on:
+    - Overall Accuracy
+    - Weighted Precision, Recall, F1 Score.
+    - ROC-AUC for confidence evaluation.
+    - Cross-Validation performance for generalization insights.
+- The best-performing model will be selected for deplyment based on metrics logged in MLflow.
+
+
 
 
 
